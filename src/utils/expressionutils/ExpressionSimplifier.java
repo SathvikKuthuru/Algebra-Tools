@@ -43,14 +43,14 @@ public class ExpressionSimplifier {
         int coefficientIndex = -1;
         for(int i = index; i < toSimplify.getUsedExpression().length(); i++) {
             Operator check = getOperator(i);
-            if(!check.equals(Operator.EXPONENT) && check != null) break;
+            if(check != null && !check.equals(Operator.EXPONENT)) break;
             endIndex = i;
             Character current = toSimplify.getUsedExpression().charAt(index);
             if(current.equals(toSimplify.getVariable())) {
                 hasVariable = true;
                 continue;
             }
-            if(check.equals(Operator.EXPONENT)) {
+            if(check != null && check.equals(Operator.EXPONENT)) {
                 switchNext = true;
                 continue;
             }
