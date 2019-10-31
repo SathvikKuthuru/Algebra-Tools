@@ -12,7 +12,7 @@ public class ExpressionValidator {
         if(toValidate.getUsedExpression() == null) {
             return ExpressionError.EMPTY_EXPRESSION;
         }
-        ExpressionError[] checks = {this.checkCharacters(), this.checkVariable(), this.checkCharacters()};
+        ExpressionError[] checks = {this.checkCharacters(), this.checkVariable(), this.checkParentheses()};
         for(ExpressionError e : checks) {
             if(e != ExpressionError.NO_ERROR) return e;
         }
@@ -41,7 +41,7 @@ public class ExpressionValidator {
 
     public ExpressionError checkCharacters() {
         for(char c : toValidate.getUsedExpression().toCharArray()) {
-            if(c != toValidate.getVariable() && !validCharacters.contains(c+"")) {
+            if(!Character.isAlphabetic(c) && !validCharacters.contains(c+"")) {
                 return ExpressionError.UNKNOWN_SYMBOL;
             }
         }
