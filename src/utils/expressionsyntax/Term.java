@@ -1,13 +1,32 @@
 package utils.expressionsyntax;
 
-public class Term implements Syntax {
-    int coefficient;
-    int exponent;
-    Character variable;
+import java.math.BigInteger;
 
-    public Term(int c, int exp, Character v) {
-        this.coefficient = c;
-        this.exponent = exp;
+public class Term implements Syntax {
+    private BigInteger coefficient;
+    private BigInteger exponent;
+    private Character variable;
+
+    public Term(String c, String exp, Character v) {
+        this.coefficient = new BigInteger(c);
+        this.exponent = new BigInteger(exp);
         this.variable = v;
+    }
+
+    public BigInteger getCoefficient() {
+        return this.coefficient;
+    }
+
+    public BigInteger getExponent() {
+        return this.getExponent();
+    }
+
+    public Character getVariable() {
+        return this.variable;
+    }
+
+    @Override
+    public String toString() {
+        return coefficient + " " + variable + " " + exponent;
     }
 }
