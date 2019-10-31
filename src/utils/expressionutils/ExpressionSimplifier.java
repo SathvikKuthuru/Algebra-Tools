@@ -7,11 +7,11 @@ import utils.expressionsyntax.Term;
 import java.util.ArrayList;
 
 public class ExpressionSimplifier {
-    Expression toSimplify;
-    Expression simplifiedExpression;
-    ExpressionValidator expressionValidator;
-    ExpressionError expressionError;
-    ArrayList<Syntax> expressionSyntax;
+    private Expression toSimplify;
+    private Expression simplifiedExpression;
+    private ExpressionValidator expressionValidator;
+    private ExpressionError expressionError;
+    private ArrayList<Syntax> expressionSyntax;
 
     public ExpressionSimplifier(Expression input) {
         this.toSimplify = input;
@@ -84,6 +84,25 @@ public class ExpressionSimplifier {
         return null;
     }
 
+    public Expression getSimplifiedExpression() {
+        return simplifiedExpression;
+    }
+
+    public Expression getToSimplify() {
+        return toSimplify;
+    }
+
+    public ExpressionError getExpressionError() {
+        return expressionError;
+    }
+
+    public ExpressionValidator getExpressionValidator() {
+        return expressionValidator;
+    }
+
+    public ArrayList<Syntax> getExpressionSyntax() {
+        return expressionSyntax;
+    }
 
     public Expression simplify() {
         if (expressionError != ExpressionError.NO_ERROR) return null;
